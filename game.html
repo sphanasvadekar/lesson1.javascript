@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>
+            Assignment 
+        </title>
+    </head>
+<body>
+    <script>
+        var userName = prompt("Please Enter Your name");
+        console.log("Welcome",userName);
+
+
+        function play(questions,answer){
+
+            var currentQuestion = prompt(questions[i]);
+            // var userAnswer = option[i];
+            if(currentQuestion===correctAnswer){
+
+                console.log(" Correct Answer ");
+            }
+          
+            else{
+                console.log("Wrong Answer");
+            }
+
+        }
+        var questions = [
+        {
+        question : "Who is the CM of Goa ? ",
+
+        answer: {
+        optionOne   : "Michael Lobo",
+        optionTwo   : "Pramod Sawant",
+        optionThree : "Milind Naik",
+        },
+
+        correctAnswer:"optionTwo"
+    },
+        {
+        question : "Who is the PM of India ? ",
+
+        answer: {
+        optionOne   : "Narendra Modi",
+        optionTwo   : "Nitin Gadkari",
+        optionThree : "Amit  Shah",
+        },
+        correctAnswer:"optionOne"
+    }
+    
+    ]
+
+        for(var i=0;i<questions.length;i++){
+
+            console.log("Your Question is",questions[i]);
+
+        }
+
+        play(questions,answer);
+
+
+
+    </script>
+</body>
+
+
+</html>

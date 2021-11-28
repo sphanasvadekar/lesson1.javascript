@@ -1,0 +1,90 @@
+<html>
+       <head>
+	     <title>
+		Learn Javascript
+	     </title>
+      </head>
+      <body>
+	<script>
+        // var readlinesync = require('readline-sync');
+        var score = 0;
+        var userName = prompt("What is your name ? ")
+
+        console.log(" Welcome " +userName+" to this Game ");
+
+        function play(question,answer){
+            var userAnswer = prompt(question);
+
+            if(userAnswer===answer){
+
+                console.log(" You Are Right ");
+                score++
+            }
+            else{
+                console.log(" You Are Wrong ");
+                score--
+            }
+            console.log("Your Current score is ",score);
+
+
+        }
+
+       // var questionOne ={ question : "Where Do You Live ? ", answer : "Goa"}
+
+       
+
+	// 	var superman = {
+	// 		name : "Superman",
+	// 		costumeColor:"Blue"
+	// 			}
+
+	// 	var batman = {
+	// 		name : "Batman",
+	// 		costumeColor : "Black"
+	// 		}
+
+	// 	var shaktiman ={
+	// 		name :"Shaktiman",
+	// 		costumeColor:"Red"
+	// 			}
+
+    // var superheroes = [superman,batman,shaktiman];
+
+	// 	for (var i=0; i<superheroes.length; i++){   
+    //   var currentHero = superheroes[i];
+    //   console.log("Your Current Hero is ",currentHero.name);
+    //   console.log("Your Costume Color is ",currentHero.costumeColor);
+    //   console.log("------------------------");
+
+
+    var questions = [
+        {
+            question : "What is the Capital of Goa ?",
+            answer : "Panaji"
+        },
+
+        {
+            question : "What is the Capital of Maharashtra ?",
+            answer : "Mumbai"
+        },
+
+        {
+            question : "What is the Capital of India ?",
+            answer : "New Delhi"
+        }
+
+    ]
+//loop
+    for(var i=0; i<questions.length;i++)
+    {
+        var currentQuestion = questions[i];
+
+        play(currentQuestion.question,currentQuestion.answer);
+    }
+   
+
+    console.log("Your Final Score is",score);
+
+	</script>
+    </body>
+</html>

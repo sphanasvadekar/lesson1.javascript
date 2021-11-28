@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<body>
+    <h2>Multiplication </h2>
+
+    <p id="demo">The answer is :</p>
+
+    <script>
+    
+        function multiplication(num1,num2){
+            var num1 = prompt("Please Enter the value for first number : ")
+            var num2 = prompt("Please Enter the value for Second number : ")
+            var output = num1*num2;
+            return output;
+        }
+
+        
+        var result = multiplication();
+        document.getElementById("demo").innerHTML ="The result is : "+ result;
+        
+    </script>
+</body>
+</html>

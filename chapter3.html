@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Chapter 3</title>
+        <style>
+            body{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <h1 id=headingEle></h1>
+    <input type="text" id="inputElement"></input>
+    <button id="btnAdd">+</button>
+
+    <script>
+    // get the Heading heading element
+
+    const headingEl = document.querySelector("#headingEle");
+
+
+    let totalExpense = 0;
+    //Set the Heading Element
+    headingEl.textContent = totalExpense;
+
+    //On ButtonClick add the Expense to the Expense Total
+    function addExpenseToTotal(){
+
+        //read the value input element 
+        const inputElement = document.querySelector("#inputElement");
+
+        const textAmount = inputElement.value;
+
+        console.log(textAmount);
+
+        const expense = parseInt(textAmount);
+
+        console.log(expense);
+
+        totalExpense = expense + totalExpense ;
+
+        //console.log({totalExpense});
+
+        //Set the heading element to the total expense
+        headingEl.textContent = totalExpense;
+    }
+
+    const element = document.querySelector("#btnAdd");
+    //console.log(element);
+
+    //Add Event to the Element
+    element.addEventListener("click",addExpenseToTotal,"false");
+
+    </script>
+</html>

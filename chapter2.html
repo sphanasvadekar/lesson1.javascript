@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title> Personal Expense App</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+      <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">    -->
+        <style>
+
+            body{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height : 100vh;
+            }
+
+        </style>
+    </head>
+    <body>
+        <input type="text" id="inputAmount"></input>
+        <button id="btnAddExpense">+</button>
+        
+        <script>
+
+                    //Initial Total Expense 
+                    let totalExpense = 0;
+
+                    function addExpenseToTotal(){
+                    //Get the input of expense 
+                   const inputElement = document.querySelector("#inputAmount");
+                   const textAmount = inputElement.value;
+                   console.log({textAmount});
+
+
+                   //convert text to number
+                   const expense = parseInt(textAmount);
+                    console.log({expense});
+                   //add the value to total Expense
+                   totalExpense = totalExpense + expense;
+
+                   console.log({totalExpense});
+                    }
+                
+                    //  Get the button element
+                    const element = document.querySelector("#btnAddExpense");
+                    
+                    //listen to click event
+                    element.addEventListener("click",addExpenseToTotal,false);
+
+        </script> 
+    </body>
+</html>
