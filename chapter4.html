@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Take Input in Text</title>
+    
+        <style>
+            body{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                height:100vh;
+                
+            }
+        </style>
+    </head>
+    
+        <h1 id="headingElement"></h1>
+        <input id="inputAmount" type="text" >
+        <input id="inputDesc" type="text">
+        <button id="addExpense">+</button>
+    
+
+    <script>
+        const inputHeading = document.querySelector("#headingElement");
+        
+        const inputElement = document.querySelector("#inputAmount");
+        
+        const inputDesc = document.querySelector("#inputDesc");
+
+        let totalExpense = 0;
+
+        inputHeading.textContent = totalExpense;
+
+        function incrementContainer(){
+
+            const textAmount = inputElement.value;
+
+            const textDesc = inputDesc.value;
+
+            console.log({textAmount,textDesc});
+
+            const Expense = parseInt(textAmount);
+
+            //console.log({Expense});
+
+            totalExpense = Expense + totalExpense;
+
+            //console.log({totalExpense});
+
+            inputHeading.textContent = totalExpense;
+        }   
+
+        element = document.querySelector("#addExpense");
+
+        element.addEventListener("click",incrementContainer,false);
+
+    </script>
+</html>
