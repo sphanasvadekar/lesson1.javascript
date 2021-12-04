@@ -14,33 +14,64 @@
             }
         </style>
     </head>
-    
+   
         <h1 id="headingElement"></h1>
         <input id="inputAmount" type="text" >
         <input id="inputDesc" type="text">
         <button id="addExpense">+</button>
     
-
     <script>
+        //Get the Heading Element
         const inputHeading = document.querySelector("#headingElement");
         
+        //Get The Input Element
         const inputElement = document.querySelector("#inputAmount");
         
+        //Get the Description 
         const inputDesc = document.querySelector("#inputDesc");
 
+        //initialise the totalvalue
         let totalExpense = 0;
 
+        //Set the headding element to totalExpense
         inputHeading.textContent = totalExpense;
 
-        function incrementContainer(){
+        // Set the array for all the expenses
+        const allExpense = [];
 
+        //On button click add input amount to totalexpense 
+        function incrementContainer(){
+            //Create an object 
+
+            const expenseItem ={};
+
+            //Read Value from inputAmount
             const textAmount = inputElement.value;
 
+            //Read the Description from inputDesc
             const textDesc = inputDesc.value;
 
-            console.log({textAmount,textDesc});
+            //console.log({textAmount,textDesc});
 
+            //Convert it to a Number
             const Expense = parseInt(textAmount);
+
+            //put it in a obect
+            expenseItem.desc = textDesc;
+
+            expenseItem.amount = Expense;
+
+            //Printing the object
+            console.log(expenseItem);
+
+            //Getting all object content into a array
+            allExpense.push(expenseItem);
+            
+            console.clear();
+
+            //Printing the array content in a tabular format
+            console.table(allExpense);
+
 
             //console.log({Expense});
 
