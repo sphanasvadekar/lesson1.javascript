@@ -19,10 +19,11 @@
         <input id="inputAmount" type="text" >
         <input id="inputDesc" type="text">
         <button id="addExpense">+</button>
+        <div id="expenseTable"></div>
     
     <script>
         //Get the Heading Element
-        const inputHeading = document.querySelector("#headingElement");
+        const heading = document.querySelector("#headingElement");
         
         //Get The Input Element
         const inputElement = document.querySelector("#inputAmount");
@@ -34,7 +35,10 @@
         let totalExpense = 0;
 
         //Set the headding element to totalExpense
-        inputHeading.textContent = totalExpense;
+        heading.textContent = totalExpense;
+
+        //Get the Reference to the table
+        const expenseTableEl = document.querySelector("#expenseTable");
 
         // Set the array for all the expenses
         const allExpense = [];
@@ -67,20 +71,34 @@
             //Getting all object content into a array
             allExpense.push(expenseItem);
             
-            console.clear();
+            // console.clear();
 
-            //Printing the array content in a tabular format
-            console.table(allExpense);
-
+            // //Printing the array content in a tabular format
+            // console.table(allExpense);
 
             //console.log({Expense});
 
-            totalExpense = Expense + totalExpense;
+            //Add that value to total Expense
+            totalExpense = totalExpense + Expense;
 
             //console.log({totalExpense});
 
-            inputHeading.textContent = totalExpense;
-        }   
+            const someText = `The Expense for this month is :${totalExpense}`
+
+            heading.textContent = someText;
+            
+            //Table Content
+            const data1 = allExpense[0];
+            const data2 = allExpense[1];
+
+            const data1Text =`Expense: ${data1.amount} :: Desc : ${data1.desc}`;
+            const data2Text =`Expense: ${data2.amount} :: Desc : ${data2.desc}`;
+
+            const tableText = `<div>${data1Text}</div>
+                               <div>${data2Text}</div> `
+
+            expenseTableEl.innerHTML = tableText ;
+           }   
 
         element = document.querySelector("#addExpense");
 
