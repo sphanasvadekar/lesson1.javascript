@@ -23,7 +23,7 @@
     
     <script>
         //Get the Heading Element
-        const heading = document.querySelector("#headingElement");
+        const headingEl = document.querySelector("#headingElement");
         
         //Get The Input Element
         const inputElement = document.querySelector("#inputAmount");
@@ -34,19 +34,18 @@
         //initialise the totalvalue
         let totalExpense = 0;
 
-        //Set the headding element to totalExpense
-        heading.textContent = totalExpense;
+        //Set the heading element to totalExpense
+        headingEl.textContent = totalExpense;
 
         //Get the Reference to the table
         const expenseTableEl = document.querySelector("#expenseTable");
 
-        // Set the array for all the expenses
-        const allExpense = [];
+        // Set the array for all the expenses at oneplace
+        const allExpenses = [];
 
         //On button click add input amount to totalexpense 
         function incrementContainer(){
             //Create an object 
-
             const expenseItem ={};
 
             //Read Value from inputAmount
@@ -58,18 +57,17 @@
             //console.log({textAmount,textDesc});
 
             //Convert it to a Number
-            const Expense = parseInt(textAmount);
+            const expense = parseInt(textAmount,10);
 
             //put it in a obect
             expenseItem.desc = textDesc;
-
-            expenseItem.amount = Expense;
+            expenseItem.amount = expense;
 
             //Printing the object
             console.log(expenseItem);
 
             //Getting all object content into a array
-            allExpense.push(expenseItem);
+            allExpenses.push(expenseItem);
             
             // console.clear();
 
@@ -79,17 +77,17 @@
             //console.log({Expense});
 
             //Add that value to total Expense
-            totalExpense = totalExpense + Expense;
+            totalExpense = totalExpense + expense;
 
             //console.log({totalExpense});
 
             const someText = `The Expense for this month is :${totalExpense}`
 
-            heading.textContent = someText;
+            headingEl.textContent = someText;
             
             //Table Content
-            const data1 = allExpense[0];
-            const data2 = allExpense[1];
+            const data1 = allExpenses[0];
+            const data2 = allExpenses[1];
 
             const data1Text =`Expense: ${data1.amount} :: Desc : ${data1.desc}`;
             const data2Text =`Expense: ${data2.amount} :: Desc : ${data2.desc}`;
