@@ -12,43 +12,95 @@
             }
         </style>
     </head>
-    <h1 id=headingEle></h1>
-    <input type="text" id="inputElement"></input>
-    <button id="btnAdd">+</button>
+        <h1 id=headingEle></h1>
+        <input type="text" id="inputElement"></input>
+        <input type="text" id="inputDesc"></input>
+        <button id="addExpense">+</button>
+        <div id="expenseTable"></div>
 
     <script>
     // get the heading of an element
 
     const headingEl = document.querySelector("#headingEle");
 
+    const expensetableEl = document.querySelector("#expenseTable");
+
+    const allExpenses = [];
 
     let totalExpense = 0;
     //Set the Heading Element
     headingEl.textContent = totalExpense;
 
+    const inputElement = document.querySelector("#inputElement");
+
+    const inputDesc = document.querySelector("#inputDesc");
+
     //On ButtonClick add the Expense to the Expense Total
     function addExpenseToTotal(){
 
         //read the value input element 
-        const inputElement = document.querySelector("#inputElement");
+        
+        const tableObject = {};
 
         const textAmount = inputElement.value;
 
-        console.log(textAmount);
+        const textDesc = inputDesc.value;
 
-        const expense = parseInt(textAmount);
+       // console.log(textAmount);
 
-        console.log(expense);
+       // console.log({textDesc});
 
-        totalExpense = expense + totalExpense ;
+        const expense = parseInt(textAmount,10);
+
+       // console.log({expense});
+
+        tableObject.amount = expense;
+
+        tableObject.Description = textDesc;
+
+        //console.log({tableObject});
+
+        allExpenses.push(tableObject);
+
+        //console.table(arrayTable);
+
+        totalExpense = totalExpense + expense;
 
         //console.log({totalExpense});
 
         //Set the heading element to the total expense
-        headingEl.textContent = totalExpense;
+
+        const someText = `The Expense for this month is : ${totalExpense}`
+        
+        headingEl.textContent = someText;
+
+        //Show The Table Here
+        // const data1 = allExpenses[0];
+        // const data2 = allExpenses[1];
+
+        // const data1Text  =`${data1.amount}::${data1.Description}`
+        // const data2Text  =`${data2.amount}::${data2.Description}`
+
+
+        // const tableText = `<div>${data1Text}</div>
+        //                     <div>${data2Text}</div>`
+
+        // expensetableEl.innerHTML = tableText;
+
+
+
+         const allExpenseHTML = allExpenses.map(expense => {
+             return `<div> ${expense.amount}::${expense.Description}</div>` 
+         });
+
+         const joinedAllExpenseHTML = allExpenseHTML.join("");
+
+         console.log(joinedAllExpenseHTML);
+
+         expensetableEl.innerHTML = joinedAllExpenseHTML;
     }
 
-    const element = document.querySelector("#btnAdd");
+    const element = document.querySelector("#addExpense");
     //console.log(element);
 
     //Add Event to the Element
